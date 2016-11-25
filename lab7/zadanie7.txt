@@ -1,0 +1,57 @@
+
+Zdefiniowaæ typ Zbior opisujacy zbiory liczbowe o elementach z zakresu od 0 do 63.
+
+Do pamiêtania elementów zbioru wykorzystaæ pole typu ulong,
+gdzie k-ty bit równy 1 oznacza, ¿e element k nale¿y do zbioru.
+
+Zdefiniowaæ wszystkie operacje niezbêdne do tego, aby skompilowa³ siê program z pliku Lab07.cs.
+W pliku Lab07.cs nie wolno dokonywaæ ¿adnych zmian (oczywiœcie oprócz odkomentowania kodu).
+Nie nale¿y definiowaæ operacji zbêdnych, ale trzeba zadbaæ, aby przy kompilacji nie by³o ¿adnych ostrze¿eñ.
+
+Uwagi:
+
+0) Operacje implementowaæ w kolejnoœci w jakiej pojawiaj¹ siê w funkcji Main (to u³atwi pracê)
+
+1) konstruktor z parametrem typu ulong po prostu inicjuje wewnêtrzn¹ reprezentacjê zbioru swoim argumentem
+
+2) konstruktor z parametrami typu int tworzy zbiór, do którego nale¿¹ wskazane w parametrach liczby
+   (jeœli s¹ spoza zakresu 0-63 to sa ignorowane)
+   
+3) konwerter do typu ulong zwraca wewnêtrzn¹ reprezentacjê zbioru (dozwolona jest jedynie konwersja jawna)
+
+4) konwerter z typu int tworzy zbiór jednoelementowy zawieraj¹cy wskazany element
+   (jeœli jest on spoza zakresu 0-63 to tworzy zbiór pusty)
+   
+5) operatory binarne - znaczenie oczywiste (jak to operatory)
+
+6) operator !   - dope³nienie zbioru
+
+7) indeksator
+   - przy odczycie - zwraca wartoœæ True/False w zale¿noœæi od tego czy element okreœlony przez indeks nale¿y do zbioru
+   - przy zapisie  - wstawia (dla argumentu True) lub usuwa (dla argumentu False) element okreœlony przez indeks
+   
+8) w³aœciwoœæ Ile zwraca liczbê elementów nale¿¹cych do zbioru
+
+9) W³aœciwoœæ Max zwraca najwiêkszy element zbioru (dla zbioru pustego zwraca -1)
+
+10) zadbaæ aby nie da³o siê zmieniæ zbioru pustego
+
+11) skrót (hash) zbioru powinien byæ taki sam jak skrót pola typu ulong s³u¿¹cego do jego reprezentacji
+
+12) do wypisywania zbioru s³u¿y metoda ToString()
+    ma ona wypisywaæ elementy nale¿¹ce do zbioru czyli coœ w rodzaju { 1 3 4 6 } 
+    (metoda ToString() jest u¿ywana wewnêtrznie przez .NET - w programie nie ma jawnych wywo³añ!)
+
+13) Zauwa¿my, ¿e podzbiory danego (niepustego) zbioru mo¿na podzieliæ na 2 klasy
+    - podzbiory do których nale¿y najwiêkszy element danego zbioru
+    - podzbiory do których nie nale¿y najwiêkszy element danego zbioru
+    Mo¿na to wykorzystaæ do rekurencyjnego generowania wszystkich podzbiorów danego zbioru.
+    Mo¿na np. wykorzystaæ rekurencyjn¹ metodê pomocnicz¹ o nag³ówku
+       private static void PodzbioryRek(Zbior z1, Zbior z2, Zbior[] tab, ref int i)
+    gdzie
+       z1  - elementy które nale¿¹ do generowanych podzbiorów na danym poziomie rekursji
+       z2  - elementy które nale¿y rozwa¿yæ na kolejnych poziomach rekursji
+       tab - tablica do pamiêtania generowanych podzbiorów
+       i   - indeks w tablicy tab
+    Mo¿na te¿ generowaæ podzbiory inaczej (jeœli ktoœ woli inaczej).
+    

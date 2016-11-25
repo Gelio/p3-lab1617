@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#korespondencyjny-klub-szachowy">Korespondencyjny klub szachowy</a><ul>
+<li><a href="#użyte-struktury-danych">Użyte struktury danych</a></li>
+<li><a href="#punktacja">Punktacja</a></li>
+<li><a href="#etap-1-1-punkt">Etap 1 (1 punkt)</a></li>
+<li><a href="#etap-2-3-punkty">Etap 2 (3 punkty)</a></li>
+<li><a href="#etap-3-1-punkt">Etap 3 (1 punkt)</a></li>
+<li><a href="#etap-4-1-punkt">Etap 4 (1 punkt)</a></li>
+<li><a href="#wskazówki">Wskazówki</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="korespondencyjny-klub-szachowy">Korespondencyjny klub szachowy</h1>
+<p>Klub szachowy zrzesza <code>n</code> członków. Gracze mieszkają w dużej odległości od siebie i rozgrywają partie korespondencyjnie. Klub szachowy z góry określa którzy gracze mają rozegrać ze sobą partię w danym miesiącu. Każdy z graczy może rozgrywać dowolnie dużo partii z różnymi graczami (ale nie może być tak, że para graczy rozgrywa więcej niż jedną partię). Aby ułatwić graczom sortowanie poczty, klub szachowy chce zakupić kolorowe koperty na korespondencję i przypisać kolor koperty do każdej z partii, tak aby:</p>
+<ul>
+<li>każdej partii był przypisany kolor,</li>
+<li>żaden gracz nie grał dwóch partii oznaczonych tym samym kolorem,</li>
+<li>dwie partie rozgrywane przez różnych graczy mogą mieć ten sam kolor,</li>
+</ul>
+<p>W ten sposób każdy z graczy będzie mógł jednoznacznie stwierdzić na podstawie koloru, której partii dotyczy otrzymany list. Kolory numerujemy liczbami naturalnymi od 0.</p>
+<p>Dodatkowo firma dostarczająca koperty może wyprodukować ograniczoną liczbę egzemplarzy jednego koloru, wystarczającą do obsłużenia <code>envelope_production_limit</code> partii.</p>
+<p>Dany jest plik .h z deklaracjami funkcji do napisania w zadaniu. Należy tylko napisać definicje tych funkcji i ew. funkcje pomocnicze. W tym celu stworzyć oddzielny plik <code>.cpp</code> na implementacje.</p>
+<h2 id="użyte-struktury-danych">Użyte struktury danych</h2>
+<p>Klasa <code>chess_mail_problem</code> zawiera liczbę członków klubu, wektor par graczy, którzy rozgrywają partie i limit produkcji kopert jednego koloru.</p>
+<p>Przypisanie kolorów do konkretnych partii jest reprezentowane wektorem tej samej długości, co wektor partii w <code>chess_mail_problem</code>, na i-tej pozycji wektora znajduje się numer koloru przypisanego odpowiadającej partii w wektorze par graczy.</p>
+<h2 id="punktacja">Punktacja</h2>
+<p>Zadanie składa się z 4 etapów, za 6 punktów w sumie, ale do sumy punktów możliwych do zdobycia liczy za 5 punktów. 6 punkt jest punktem bonusowym dzięki któremu można odrobić straty z poprzednich lub przyszłych zadań.</p>
+<h2 id="etap-1-1-punkt">Etap 1 (1 punkt)</h2>
+<p>Napisać funkcję <code>check_envelope_colors</code>, która sprawdzi, czy podane przypisanie kolorów do partii spełnia podane na początku ograniczenia (różne kolory partii jednego gracza, limit produkcji kopert nie jest przekroczony). Poza problemem i wektorem kolorów parametrem funkcji jest liczba kolorów użytych w rozwiązaniu – największy użyty kolor ma numer <code>number_of_colors-1</code>.</p>
+<p>Funkcja ma także sprawdzać sensowność wektora kolorów:</p>
+<ul>
+<li>czy jest dobrej długości</li>
+<li>czy nie ma kolorów spoza zakresu [0, <code>number_of_colors-1</code>]</li>
+</ul>
+<h2 id="etap-2-3-punkty">Etap 2 (3 punkty)</h2>
+<p>Napisać funkcję <code>is_number_of_colors_enough</code>, która dla liczby kolorów podanej jako argument sprawdzi, czy istnieje takie przypisanie kolorów kopert, żeby warunki były spełnione i zapisze takie przypisanie w wektorze podanym jako argument. Jeśli istnieje więcej niż jedno takie przypisanie, podać dowolną.</p>
+<p>Uwaga: w przypadku, gdy takiego przypisania nie ma, zawartość wektora przypisania może być dowolna.</p>
+<h2 id="etap-3-1-punkt">Etap 3 (1 punkt)</h2>
+<p>Napisać funkcję <code>is_number_of_colors_enough_best_solution</code>, która zadziała podobnie jak funkcja z poprzedniego etapu, z tym że spośród dopuszczalnych przypisań kolorów kopert zwróci to, które minimalizuje następujące kryterium: <code>min(C(i))</code>, gdzie <code>C(i)</code>, to liczba partii obsługiwanych danym kolorem.</p>
+<p>Jeśli jest kilka przypisań minimalizujących kryterium, podać dowolne. Dodatkowo do zmiennej podanej przez referencję <code>max_color_count</code> wpisać wartość <code>min(C(i))</code>.</p>
+<h2 id="etap-4-1-punkt">Etap 4 (1 punkt)</h2>
+<p>Ten etap sprawdza wydajność implementacji. Testy w tym etapie powinny się liczyć szybko (max 2 minuty), aby otrzymać ten punkt.</p>
+<h2 id="wskazówki">Wskazówki</h2>
+<p>Szukamy dokładnego rozwiązania. Należy zastosować metodę pełnego przeglądu, a nie metodę heurystyczną.</p>
+<p>Przy sprawdzaniu w pierwszym etapie (a także w kolejnych) pomocna może okazać się macierz liczba kolorów  × liczba graczy, przechowująca informację, czy dany gracz używa kopert z danym kolorem.</p>
+<p>C++ ma typ <code>vector</code>, który reprezentuje jednowymiarową tablicę. Można wykorzystać go do przechowania tablicy 2-wymiarowej, poprzez przeliczanie pary indeksów <code>(x,y)</code> na jednowymiarowy indeks <code>i</code>. Transformację taką można zdefiniować na przykład numerując elementy macierzy kolejno wierszami, wtedy elementy w wierszu zerowym (w C++ zazwyczaj indeksujemy od 0) mają indeks 1-wymiarowy odpowiadający numerowi kolumny, elementy w wierszu o indeksie <code>y</code>, mają numer odpowiadający całkowitej liczbie elementów w wierszach powyżej plus numerowi kolumny. Poniżej przykład ponumerowania dla macierzy <code>6×4</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">x</th>
+<th style="text-align: left;"><strong>0</strong></th>
+<th style="text-align: left;"><strong>1</strong></th>
+<th style="text-align: left;"><strong>2</strong></th>
+<th style="text-align: left;"><strong>3</strong></th>
+<th style="text-align: left;"><strong>4</strong></th>
+<th style="text-align: left;"><strong>5</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>0</strong></td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>1</strong></td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>3</strong></td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">23</td>
+</tr>
+</tbody>
+</table>
+<p>Aby przeszukać wszystkie możliwe przypisania kolorów można zastosować algorytm z powrotami, działający w następujący sposób:</p>
+<ol type="1">
+<li>Przypisz kolor 0 do pierwszej pary z wektora,</li>
+<li>dla następnych par próbuj kolejne kolory począwszy od 0, aż znajdziesz taki na który pozwalają ograniczenia (funkcje przyporządkowującą kolor dla pary wywołuj rekurencyjnie - następna para to następny poziom rekursji),</li>
+<li>jeśli dla jakiejś pary nie dało się przyporządkować koloru cofnij się do poprzedniej (powrót rekursji) i dla tej poprzedniej spróbuj następny kolor (być może będzie trzeba cofnąć się wielokrotnie),</li>
+<li>jeśli udało się przypisać kolor każdej parze to w etapie 2 już nie trzeba szukać dalej (w etapie 3 trzeba bo może inne rozwiązanie będzie lepsze).</li>
+</ol>
+<p>To podejście ilustruje rysunek poniżej.</p>
+<p>Im wyżej w drzewie uda się stwierdzić, że jakiś warunek jest naruszony, tym szybciej program będzie działał. Podobnie w przypadku etapu 3: im wcześniej uda się podać dolne oszacowanie <code>max_color_count</code> i stwierdzić, że nie poprawi ono wyniku, tym lepiej.</p>
+<figure>
+<img src="rec.svg" alt="Schemat przeszukiwania przypisań kolorów. Można go łatwo przełożyć na kolejne wywołania funkcji. Krawędzie z każdego węzła w dół oznaczają próbę przypisania koloru c_i do koperty S_j" /><figcaption>Schemat przeszukiwania przypisań kolorów. Można go łatwo przełożyć na kolejne wywołania funkcji. Krawędzie z każdego węzła w dół oznaczają próbę przypisania koloru c_i do koperty S_j</figcaption>
+</figure>
+</body>
+</html>

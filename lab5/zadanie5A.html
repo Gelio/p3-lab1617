@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Programowanie 3: zaawansowane (zadanie wymyślał: Maciej Bartoszuk)" />
+
+
+<title>Laboratorium 5A</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+</head>
+
+<body>
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img { 
+  max-width:100%; 
+  height: auto; 
+}
+</style>
+<div class="container-fluid main-container">
+
+
+<div id="header">
+<h1 class="title">Laboratorium 5A</h1>
+<h4 class="author"><em>Programowanie 3: zaawansowane (zadanie wymyślał: Maciej Bartoszuk)</em></h4>
+<h4 class="date"><em>4 listopada 2016</em></h4>
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#zarys-zadania">Zarys zadania</a></li>
+<li><a href="#kopiowanie">Kopiowanie</a></li>
+<li><a href="#etapy">Etapy</a><ul>
+<li><a href="#etap-1-1-punkt">Etap 1 (1 punkt)</a></li>
+<li><a href="#etap-2-1-punkt">Etap 2 (1 punkt)</a></li>
+<li><a href="#etap-3-1-punkt">Etap 3 (1 punkt)</a></li>
+<li><a href="#etap-4-2-punkty">Etap 4 (2 punkty)</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="zarys-zadania" class="section level1">
+<h1>Zarys zadania</h1>
+<p>Celem zadania jest implementacja prostych drzew wyrażeń logicznych. Każdy węzeł ma swoje argumenty (być może inne węzły), a na ich podstawie wyznacza swoją własną wartość logiczną.</p>
+<p>Hierarchia klas wygląda następująco:</p>
+<ul>
+<li>WartoscLogiczna – abstrakcyjna klasa, która będzie bazą dla całej reszty węzłów.</li>
+<li>PojedynczaWartoscLogiczna – węzeł przechowujący pojedynczą wartość logiczną. Wartością węzła jest właśnia ta wartość.</li>
+<li>Zaprzeczenie – klasa posiada jeden argument (inny węzeł), a wartość zwracana to zaprzeczenie wartości logicznej tego argumentu.</li>
+<li>And – klasa zawiera <code>n</code> argumentów (innych węzłów), a jej wartość logiczna to <code>prawda</code> wtedy i tylko wtedy gdy wszystkie argumenty mają wartość logiczną <code>prawda</code>. W przeciwnym wypadku wartością jest <code>fałsz</code>.</li>
+</ul>
+<p>Etapy 1-2 należy robić najpierw i w tej kolejności, zaś etapy 3 i 4 można robić później w dowolnej kolejności (aczkolwiek 3 powinien być łatwiejszy od 4).</p>
+</div>
+<div id="kopiowanie" class="section level1">
+<h1>Kopiowanie</h1>
+<p>W zadaniu pojawia się problem, jak należy kopiować argumenty konstruktora w różnych klasach. Ponieważ chcemy tworzyć drzewo dynamicznie i podczas jego tworzenia nie chcemy wytwarzać nowych, identycznych klas, ogólnie kierujemy się zasadą, że <code>WartościLogiczne</code> kopiujemy płytko, czyli zapisujemy jedynie referencję. Pojawia się pytanie, jak należy traktować tablice w operatorze <code>And</code>. Decydujemy się na następujące rozwiązanie: samą tablicę alokujemy nową, nie korzystamy z tablicy podanej jako argument. Ale już elementy tablicy kopiujemy jak poprzednio, czyli płytko.</p>
+<p>Aby nie pozbawiać się możliwości kopii głębokiej, mamy metodę <code>KopiujGleboko()</code>, która ma zwracać kopię głęboką węzła i wszystkich jego dzieci.</p>
+</div>
+<div id="etapy" class="section level1">
+<h1>Etapy</h1>
+<div id="etap-1-1-punkt" class="section level2">
+<h2>Etap 1 (1 punkt)</h2>
+<p>Stwórz abstrakcyjną klasę <code>WartoscLogiczna</code>. Jej składowe to:</p>
+<ul>
+<li><code>ObliczWartosc()</code>, abstrakcyjna metoda zwracająca <em>bool</em>. Nie przyjmuje żadnych argumentów.</li>
+<li><code>KopiujGleboko()</code>, abstrakcyjna metoda zwracająca obiekt klasy <code>WartoscLogiczna</code>. Nie przyjmuje żadnych argumentów.</li>
+<li><code>Print()</code>, metoda która nic nie przyjmuje i nic nie zwraca. Powinna wypisywać na konsolę wartość zwracaną przez <code>ObliczWartosc()</code>.</li>
+</ul>
+</div>
+<div id="etap-2-1-punkt" class="section level2">
+<h2>Etap 2 (1 punkt)</h2>
+<p>Stwórz klasę <code>PojedynczaWartoscLogiczna</code>, która dziedziczy po klasie <code>WartoscLogiczna</code>. Jej składowe to:</p>
+<ul>
+<li>prywatne pole <code>wartosc</code> typu <code>bool</code>,</li>
+<li>konstruktor, który przyjmuje jedną wartość logiczną (i zapisuje ją we wcześniej wspomnianym polu),</li>
+<li><code>SetWartosc()</code>, metoda która przyjmuje jeden argument typu <code>bool</code> i przypisuje go do pola <code>wartosc</code>. Metoda nie zwraca niczego,</li>
+<li>metody wynikające z dziedziczenia po <code>WartoscLogiczna</code>.</li>
+</ul>
+</div>
+<div id="etap-3-1-punkt" class="section level2">
+<h2>Etap 3 (1 punkt)</h2>
+<p>Stwórz klasę <code>Zaprzeczenie</code>, która dziedziczy po klasie <code>WartoscLogiczna</code>. Jej składowe to:</p>
+<ul>
+<li>prywatne pole <code>wartosc</code> typu <code>WartoscLogiczna</code>,</li>
+<li>konstruktor, który przyjmuje jedną wartość logiczną i tworzy nową instancję klasy <code>PojedynczaWartoscLogiczna</code>, którą zapisuje w polu <code>wartosc</code>,</li>
+<li>konstruktor, który przyjmuje instancję klasy <code>WartoscLogiczna</code>, którą (kopiowanie płytkie, czyli żadne) zapisuje w polu <code>wartosc</code>,</li>
+<li>metody wynikające z dziedziczenia po <code>WartoscLogiczna</code>.</li>
+</ul>
+</div>
+<div id="etap-4-2-punkty" class="section level2">
+<h2>Etap 4 (2 punkty)</h2>
+<p>Stwórz klasę <code>And</code>, która dziedziczy po klasie <code>WartoscLogiczna</code>. Jej składowe to:</p>
+<ul>
+<li>prywatne pole <code>argumenty</code>, które jest tablicą instancji klasy <code>WartoscLogiczna</code></li>
+<li>konstruktor, który przyjmuje tablicę wartości logicznych. Konstruktor alokuje nową tablicę typu <code>WartoscLogiczna</code> i przypisuje wartości logiczne poprzez tworzenie instancji klas <code>PojedynczaWartoscLogiczna</code>. Tablica zostaje zapisana w polu <code>argumenty</code>.</li>
+<li>konstruktor, który przyjmuje tablicę klasy <code>WartoscLogiczna</code>. Konstruktor alokuje nową tablicę typu <code>WartoscLogiczna</code> i przepisuje (kopia płytka, czyli żadna) elementy z tablicy wejściowej. Czyli samą tablicę tworzymy nową (w jakimś sensie jest to kopia głęboka), ale już elementy tej tablicy są po prostu przepisywane (kopia płytka).</li>
+<li>metody wynikające z dziedziczenia po <code>WartoscLogiczna</code>.</li>
+</ul>
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>

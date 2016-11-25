@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Programowanie 3: zaawansowane (zadanie wymyślał: Maciej Bartoszuk)" />
+
+<title>Laboratorium 6A</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+</head>
+
+<body>
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img { 
+  max-width:100%; 
+  height: auto; 
+}
+</style>
+<div class="container-fluid main-container">
+
+
+<div id="header">
+<h1 class="title">Laboratorium 6A</h1>
+<h4 class="author"><em>Programowanie 3: zaawansowane (zadanie wymyślał: Antoni Sobkowicz)</em></h4>
+<h4 class="date"><em>10 listopada 2016</em></h4>
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#zarys-zadania">Zarys zadania</a></li>
+<li><a href="#etapy">Etapy</a><ul>
+<li><a href="#etap-1-2-punkt">Etap 1 (2 punkty)</a></li>
+<li><a href="#etap-2-1-punkt">Etap 2 (1 punkt)</a></li>
+<li><a href="#etap-3-1-punkt">Etap 3 (2 punkty)</a></li>
+<li><a href="#slow">Słowniczek</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="zarys-zadania" class="section level1">
+<h1>Zarys zadania</h1>
+<p>Celem zadania jest implementacja hierarchii klas, obrazujących strukturę bohaterów w grze MOBA (na przykładzie League of Legents) - tiery, lane'y oraz bohaterowie; oraz narzędzi wspomagajacych.</p>
+<p>Hierarchia klas wygląda następująco:</p>
+<ul>
+<li><code>Tier</code> – klasa zawierająca nazwę tieru <code>Name</code> typu <code>string</code>, oraz konstruktor w postaci <code>Tier(string name)</code></li>
+<li><code>Lane</code> – klasa dziedzicząca po klasie <code>Tier</code> zawierająca nazwę lane'u <code>Name</code> typu <code>string</code>, 
+        metodę <code>GetTierName()</code> zwracającą nazwę tieru, oraz konstruktor <code>Lane(string Name, string _Tier)</code> który ustawia nazwę lane'u i nazwę tieru</li>
+<li><code>Hero</code> –  klasa dziedzicząca po klasie <code>Lane</code> zawierająca nazwę bohatera <code>Name</code> typu <code>string</code>, 
+        metodę <code>GetLaneName()</code> zwracającą nazwę lane'u,
+        oraz konstruktor <code>Hero(string Name, string _Lane, string _Tier)</code> który ustawia nazwę bohatera, lane'u i nazwę tieru</li>
+<li><code>L6</code> – Klasa pomocnicza</li>
+</ul>
+</div>
+<div id="etapy" class="section level1">
+<h1>Etapy</h1>
+<div id="etap-1-2-punkt" class="section level2">
+<h2>Etap 1 (2 punkty)</h2>
+<p>Stwórz hierarchię klas, tak by spełniały założenia z zarysu zadania. Wszystkie klasy powinny przedefiniowywać metodę <code>GetHashcode()</code> oraz <code>Equals(object obj)</code></p>
+</div>
+<div id="etap-2-1-punkt" class="section level2">
+<h2>Etap 2 (1 punkt)</h2>
+<p>Stwórz klasę L6 - jej składowe to</p>
+<ul>
+<li>pole <code>_Tier</code> typu <code>Tier</code> zawierające aktualny tier oraz metodę <code>SetTier(Tier Tier)</code> która ustawia tier, nie zmieniając jej jeśli obiekt nie jest typu <code>Tier</code> (czyli nie typu <code>Lane</code> lub <code>Hero</code>)</li>
+<li>pole <code>Lanes</code> typu <code>List&lt;Lane&gt;</code> zawierające aktualną listę lane'ów</li>
+<li>pole <code>Heros</code> typu <code>List&lt;Hero&gt;</code> zawierające aktualną listę bohaterów</li>
+<li><code>AddLane</code>, metoda która przyjmuje jeden argument typu <code>Lane</code> dodaje go do listy Lanes. Metoda zwraca true jeśli lane dodano, false jeśli lane znajduje sie już na liście, null jeśli lane'u nie można dodać (element nie jest lanem, nie jest odpowiedniej tieru).</li>
+<li><code>AddLaneIgnoreConstraints</code>, metoda która przyjmuje jeden argument typu <code>Lane</code> dodaje go do listy Lanes. Metoda zwraca true jeśli lane dodano, false jeśli lane znajduje sie już na liście.</li>
+</ul>
+</div>
+<div id="etap-3-1-punkt" class="section level2">
+<h2>Etap 3 (2 punkty)</h2>
+<p>Rozszerz klasę L6</p>
+<ul>
+    <li><code>AddHero</code>, metoda która przyjmuje jeden argument typu <code>Hero</code> dodaje go do listy Heros. Metoda zwraca true jeśli bohatera dodano, false jeśli bohater znajduje sie już na liście, null jeśli bohatera nie można dodać (element nie jest bohaterem, nie jest odpowiedniego tieru, na liście lane'ów nie ma odpowiedniego lane'u).</li>
+    <li><code>AddHeroIgnoreConstraints</code>, metoda która przyjmuje jeden argument typu <code>Hero</code> dodaje go do listy Heros. Metoda zwraca true jeśli bohatera dodano, false jeśli bohater znajduje sie już na liście.</li>
+    <li><code>AreAllLinesDifferent</code> - metoda która zwraca true jeśli wszystkie wszyscy bohaterowie na liście mają inny lane.</li>    
+</ul>
+</div>
+<div id="slow" class="section level2">
+<h2>Słowniczek</h2>
+<ul>
+    <li>Tier, czyli Poziom - tak bohaterowie w grach MOBA (i nie tylko) sa klasyfikowani przez graczy. Im wyższy poziom tym bohater jest uznawany za potężniejszego. Czasami używane są numerki tierów (im mniejszy tym lepszy) lub opisy słowne, np. God-Tier (najpotężniejszy) czy Trash (nie da się grać)</li>    
+    <li>Lane - w grach MOBA takich jak League of Legends, postacie sterowane przez komputer poruszają się zazwyczaj jedną z trzech ścieżek - górną, dolną bądź centralną. Niektórzy bohaterowie sprawdzają się lepiej na konkretnej ścieżce niż na innych - w szczególności w grach profesjonalnych gdzie panują pewne niepisane zasady przydziału bohaterów do pewnych ról.</li>
+</ul>
+*Oczywiście, można by tez zaproponować podział bohaterów na Role zamiast Lane'y, ale to nie jest celem tego ćwiczenia.
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>
