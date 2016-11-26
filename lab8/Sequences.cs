@@ -46,7 +46,7 @@ namespace Lab8a
             }
         }
 
-        static public IEnumerable LimitSeq(IEnumerable e, int n)
+        static public IEnumerable LimitSeq(IEnumerable sequence, int n)
         {
             IEnumerator enumerator = sequence.GetEnumerator();
             int i = 0;
@@ -79,7 +79,7 @@ namespace Lab8a
             return product;
         }
 
-        static public IEnumerable NotDividingNeighboursSubsequence(IEnumerable e)
+        static public IEnumerable NotDividingNeighboursSubsequence(IEnumerable sequence)
         {
             int previous = -1;
             IEnumerator enumerator = sequence.GetEnumerator();
