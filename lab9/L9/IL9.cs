@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace L9
 {
-    public interface IL9<K,V> where K : IComparable
+    public interface IL9<K,V> : IEnumerable, IEnumerable<V> where K : IComparable
     {
         int Count { get; }
         int? Limit { get; set; }

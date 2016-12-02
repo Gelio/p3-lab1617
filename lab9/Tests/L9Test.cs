@@ -197,36 +197,36 @@ namespace Tests
             collection.GetAt(20);
         }
 
-        //[TestMethod]
-        //public void E4_TestIEnumerableInitializeInt32Count()
-        //{
-        //    IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
-        //    Console.Out.WriteLine(collection.ToString());
-        //    Assert.AreEqual(2, collection.Count);
-        //}
+        [TestMethod]
+        public void E4_TestIEnumerableInitializeInt32Count()
+        {
+            IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
+            Console.Out.WriteLine(collection.ToString());
+            Assert.AreEqual(2, collection.Count);
+        }
 
-        //[TestMethod]
-        //public void E4_TestIEnumerableInitializeInt32Value()
-        //{
-        //    IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
-        //    Console.Out.WriteLine(collection.ToString());
-        //    Assert.AreEqual(1, collection.GetAt(0).Value);
-        //}
+        [TestMethod]
+        public void E4_TestIEnumerableInitializeInt32Value()
+        {
+            IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
+            Console.Out.WriteLine(collection.ToString());
+            Assert.AreEqual(1, collection.GetAt(0).Value);
+        }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(KeyNotFoundException))]
-        //public void E4_TestIndexerGetException()
-        //{
-        //    IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
-        //    var _value = collection["K100"];
-        //}
+        [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void E4_TestIndexerGetException()
+        {
+            IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
+            var _value = collection["K100"];
+        }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(KeyNotFoundException))]
-        //public void E4_TestIndexerSetException()
-        //{
-        //    IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
-        //    collection["K100"] = 1;
-        //}
+        [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void E4_TestIndexerSetException()
+        {
+            IL9<String, Int32> collection = new L9<String, Int32>() { { "K2", 1 }, { "K1", 1 } };
+            collection["K100"] = 1;
+        }
     }
 }

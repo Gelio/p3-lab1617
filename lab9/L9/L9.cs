@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace L9
@@ -124,6 +125,21 @@ namespace L9
         {
             for (int i=0; i < Count; i++)
                 yield return new KeyValuePair<K, V>(_keys[i], _values[i]);
+        }
+
+        public IEnumerator<V> GetEnumerator()
+        {
+            return _values.GetEnumerator();
+        }
+        
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
+        public void Add(K key, V value)
+        {
+            Put(key, value);
         }
     }
 }
