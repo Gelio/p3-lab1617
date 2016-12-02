@@ -172,30 +172,30 @@ namespace Tests
             Assert.AreEqual(2, collection.Count);
         }
 
-        //[TestMethod]
-        //public void E3_TestLastInt32()
-        //{
-        //    IL9<String, Int32> collection = new L9<String, Int32>();
-        //    collection.Put("K2", 2);
-        //    collection.Put("K4", 2);
-        //    collection.Put("K3", 2);
-        //    collection.Put("K5", 1);
-        //    collection.Put("K1", 8);
-        //    collection.Put("K5", 1);
-        //    collection["K5"] = 5;
-        //    Console.Out.WriteLine(collection.ToString());
-        //    Assert.AreEqual(5, collection.Last());
-        //}
+        [TestMethod]
+        public void E3_TestLastInt32()
+        {
+            IL9<String, Int32> collection = new L9<String, Int32>();
+            collection.Put("K2", 2);
+            collection.Put("K4", 2);
+            collection.Put("K3", 2);
+            collection.Put("K5", 1);
+            collection.Put("K1", 8);
+            collection.Put("K5", 1);
+            collection["K5"] = 5;
+            Console.Out.WriteLine(collection.ToString());
+            Assert.AreEqual(5, collection.Last());
+        }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(IndexOutOfRangeException))]
-        //public void E3_TestGetAtException()
-        //{
-        //    IL9<String, Int32> collection = new L9<String, Int32>();
-        //    collection.Put("K1", 1);
-        //    collection.Put("K2", 2);
-        //    collection.GetAt(20);
-        //}
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void E3_TestGetAtException()
+        {
+            IL9<String, Int32> collection = new L9<String, Int32>();
+            collection.Put("K1", 1);
+            collection.Put("K2", 2);
+            collection.GetAt(20);
+        }
 
         //[TestMethod]
         //public void E4_TestIEnumerableInitializeInt32Count()

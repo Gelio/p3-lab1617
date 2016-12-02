@@ -8,7 +8,7 @@ namespace L9
     {
         int Count { get; }
         int? Limit { get; set; }
-        //IEnumerable<KeyValuePair<K, V>> Elements();
+        IEnumerable<KeyValuePair<K, V>> Elements();
         V Get(K key);
         bool Put(K key, V value);
         bool Remove(K key);

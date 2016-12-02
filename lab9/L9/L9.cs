@@ -119,5 +119,11 @@ namespace L9
                 _values[index] = value;
             }
         }
+
+        public IEnumerable<KeyValuePair<K, V>> Elements()
+        {
+            for (int i=0; i < Count; i++)
+                yield return new KeyValuePair<K, V>(_keys[i], _values[i]);
+        }
     }
 }
