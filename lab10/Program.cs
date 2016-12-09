@@ -36,31 +36,32 @@ namespace lab10A
             Console.WriteLine("Powinno byc: 0,089999999");
 
 
-            //Console.WriteLine("\nEtap 2: czesc 1");
+            Console.WriteLine("\nEtap 2: czesc 1");
 
-            ////uzupelnij funkcja, ktora przyjmuje x i zwraca sin(x+pi)+1.0
-            //Console.Write(FunctionGenerationAndUsage.QuadraticFunction(..., 0.6, 0.8, 1)(1) + " ");
-            //Console.Write(FunctionGenerationAndUsage.QuadraticFunction(..., 0.3, 0.6, -3)(0.5) + " ");
-            //Console.Write(FunctionGenerationAndUsage.QuadraticFunction(..., 0.6, 0.1, 0)(-0.5) + " ");
-            //Console.Write(FunctionGenerationAndUsage.QuadraticFunction(..., 2.0, 1.0, 0.5)(0.8) + " ");
-            //Console.Write(FunctionGenerationAndUsage.QuadraticFunction(..., 1.0, 0.6, 0.1)(1.2) + "\n");
+            //uzupelnij funkcja, ktora przyjmuje x i zwraca sin(x+pi)+1.0
+            Func<double, double> testFn = x => (Math.Sin(x + Math.PI) + 1.0);
+            Console.Write(FunctionGenerationAndUsage.QuadraticFunction(testFn, 0.6, 0.8, 1)(1) + " ");
+            Console.Write(FunctionGenerationAndUsage.QuadraticFunction(testFn, 0.3, 0.6, -3)(0.5) + " ");
+            Console.Write(FunctionGenerationAndUsage.QuadraticFunction(testFn, 0.6, 0.1, 0)(-0.5) + " ");
+            Console.Write(FunctionGenerationAndUsage.QuadraticFunction(testFn, 2.0, 1.0, 0.5)(0.8) + " ");
+            Console.Write(FunctionGenerationAndUsage.QuadraticFunction(testFn, 1.0, 0.6, 0.1)(1.2) + "\n");
 
-            //Console.WriteLine("Powinno byc:\n1,14190208134835 -2,60635599220526 1,46116250842502 0,942419067803675 0,145395234255834");
+            Console.WriteLine("Powinno byc:\n1,14190208134835 -2,60635599220526 1,46116250842502 0,942419067803675 0,145395234255834");
 
-            //Console.WriteLine("\nEtap 2: czesc 2");
+            Console.WriteLine("\nEtap 2: czesc 2");
 
-            ////uzupelnij funkcja, ktora przyjmuje x i zwraca sin(x+pi)+1.0
-            //Console.WriteLine(FunctionGenerationAndUsage.IsMonotonic(0,1,20,
-            //    FunctionGenerationAndUsage.QuadraticFunction(..., 0.6, 0.8, 1)));
-            //Console.WriteLine("Powinno byc: True");
-            //Console.WriteLine(FunctionGenerationAndUsage.IsMonotonic(0, 2, 20,
-            //    FunctionGenerationAndUsage.QuadraticFunction(..., - 0.6, 0.8, 1)));
-            //Console.WriteLine("Powinno byc: False");
+            //uzupelnij funkcja, ktora przyjmuje x i zwraca sin(x+pi)+1.0
+            Console.WriteLine(FunctionGenerationAndUsage.IsMonotonic(0, 1, 20,
+                FunctionGenerationAndUsage.QuadraticFunction(testFn, 0.6, 0.8, 1)));
+            Console.WriteLine("Powinno byc: True");
+            Console.WriteLine(FunctionGenerationAndUsage.IsMonotonic(0, 2, 20,
+                FunctionGenerationAndUsage.QuadraticFunction(testFn, -0.6, 0.8, 1)));
+            Console.WriteLine("Powinno byc: False");
 
-            //List<Point2D> points = new List<Point2D>() { new Point2D(0.3, -0.4),
-            //    new Point2D(0.7, 0.4), new Point2D(0.8, -0.1), new Point2D(-1.5, -0.77),
-            //    new Point2D(-0.7, -1.4), new Point2D(2.3, 1.4), new Point2D(-0.3, -0.221),
-            //    new Point2D(1.3, -1.2)};
+            List<Point2D> points = new List<Point2D>() { new Point2D(0.3, -0.4),
+                new Point2D(0.7, 0.4), new Point2D(0.8, -0.1), new Point2D(-1.5, -0.77),
+                new Point2D(-0.7, -1.4), new Point2D(2.3, 1.4), new Point2D(-0.3, -0.221),
+                new Point2D(1.3, -1.2)};
 
             //Console.WriteLine("\nEtap 3: czesc 1");
 
