@@ -63,18 +63,18 @@ namespace lab10A
                 new Point2D(-0.7, -1.4), new Point2D(2.3, 1.4), new Point2D(-0.3, -0.221),
                 new Point2D(1.3, -1.2)};
 
-            //Console.WriteLine("\nEtap 3: czesc 1");
+            Console.WriteLine("\nEtap 3: czesc 1");
 
-            //Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[0], points[1]) + " ");
-            //Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[0], points[2]) + " ");
-            //Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[2], points[1]) + " ");
-            //Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[3], points[1]) + " ");
-            //Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[4], points[2]) + "\n");
-            //Console.WriteLine("Powinno byc:\n1,2 0,8 0,6 3,37 2,8");
+            Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[0], points[1]) + " ");
+            Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[0], points[2]) + " ");
+            Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[2], points[1]) + " ");
+            Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[3], points[1]) + " ");
+            Console.Write(FunctionGenerationAndUsage.ManhattanDistance()(points[4], points[2]) + "\n");
+            Console.WriteLine("Powinno byc:\n1,2 0,8 0,6 3,37 2,8");
 
-            //Console.WriteLine("\nEtap 3: czesc 2");
-            //Console.WriteLine(FunctionGenerationAndUsage.Medoid(points, FunctionGenerationAndUsage.ManhattanDistance()));
-            //Console.WriteLine("Powinno byc: 0,3, -0,4");
+            Console.WriteLine("\nEtap 3: czesc 2");
+            Console.WriteLine(FunctionGenerationAndUsage.Medoid(points, FunctionGenerationAndUsage.ManhattanDistance()));
+            Console.WriteLine("Powinno byc: 0,3, -0,4");
 
 
             //Console.WriteLine("\nEtap 4: czesc 1");

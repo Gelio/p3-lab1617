@@ -72,6 +72,35 @@ namespace lab10A
             else
                 return -1;
         }
+
+        public static Func<Point2D, Point2D, double> ManhattanDistance()
+        {
+            return (Point2D p1, Point2D p2) =>
+            {
+                return Math.Abs(p1.X - p2.X) + Math.Abs(p1.Y - p2.Y);
+            };
+        }
+
+        public static Point2D Medoid(List<Point2D> points, Func<Point2D, Point2D, double> distanceFn)
+        {
+            double minDistance = double.PositiveInfinity;
+            Point2D minPoint = null;
+            for (int i=0; i < points.Count; i++)
+            {
+                double currentDistance = 0;
+                for (int j=0; j < points.Count; j++)
+                    currentDistance += distanceFn(points[i], points[j]);
+                if (currentDistance < minDistance)
+                {
+                    minDistance = currentDistance;
+                    minPoint = points[i];
+                }
+            }
+
+            return minPoint;
+
+            
+        }
     }
 
 }
