@@ -20,22 +20,22 @@ namespace lab10A
         }
         static void Main(string[] args)
         {
-            //Console.WriteLine("Etap 1: czesc 1");
+            Console.WriteLine("Etap 1: czesc 1");
 
-            //Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.6, 0.6) + " ");
-            //Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.3, 0.6) + " ");
-            //Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.6, 0.9) + " ");
-            //Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.6, 1.0) + " ");
-            //Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(1.0, 0.6) + "\n");
-            //Console.WriteLine("Powinno byc:\n0,2 0 0,5 0,6 0,6");
-            
-            //Console.WriteLine("\nEtap 1: czesc 2");
-            //Console.WriteLine(FunctionGenerationAndUsage.ReduceManyArguments(FunctionGenerationAndUsage.LukasiewiczTnormGeneration(), 1, 0.99, 0.67, 0.87, 0.96));
-            //Console.WriteLine("Powinno byc: 0,49");
-            //Console.WriteLine(FunctionGenerationAndUsage.ReduceManyArguments(FunctionGenerationAndUsage.LukasiewiczTnormGeneration(), 1, 0.89, 0.57, 0.67, 0.96));
-            //Console.WriteLine("Powinno byc: 0,089999999");
+            Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.6, 0.6) + " ");
+            Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.3, 0.6) + " ");
+            Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.6, 0.9) + " ");
+            Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(0.6, 1.0) + " ");
+            Console.Write(FunctionGenerationAndUsage.LukasiewiczTnormGeneration()(1.0, 0.6) + "\n");
+            Console.WriteLine("Powinno byc:\n0,2 0 0,5 0,6 0,6");
 
-            
+            Console.WriteLine("\nEtap 1: czesc 2");
+            Console.WriteLine(FunctionGenerationAndUsage.ReduceManyArguments(FunctionGenerationAndUsage.LukasiewiczTnormGeneration(), 1, 0.99, 0.67, 0.87, 0.96));
+            Console.WriteLine("Powinno byc: 0,49");
+            Console.WriteLine(FunctionGenerationAndUsage.ReduceManyArguments(FunctionGenerationAndUsage.LukasiewiczTnormGeneration(), 1, 0.89, 0.57, 0.67, 0.96));
+            Console.WriteLine("Powinno byc: 0,089999999");
+
+
             //Console.WriteLine("\nEtap 2: czesc 1");
 
             ////uzupelnij funkcja, ktora przyjmuje x i zwraca sin(x+pi)+1.0
@@ -46,7 +46,7 @@ namespace lab10A
             //Console.Write(FunctionGenerationAndUsage.QuadraticFunction(..., 1.0, 0.6, 0.1)(1.2) + "\n");
 
             //Console.WriteLine("Powinno byc:\n1,14190208134835 -2,60635599220526 1,46116250842502 0,942419067803675 0,145395234255834");
-            
+
             //Console.WriteLine("\nEtap 2: czesc 2");
 
             ////uzupelnij funkcja, ktora przyjmuje x i zwraca sin(x+pi)+1.0
@@ -75,7 +75,7 @@ namespace lab10A
             //Console.WriteLine(FunctionGenerationAndUsage.Medoid(points, FunctionGenerationAndUsage.ManhattanDistance()));
             //Console.WriteLine("Powinno byc: 0,3, -0,4");
 
-            
+
             //Console.WriteLine("\nEtap 4: czesc 1");
             //int[] array = new int[]{4,5,6 };
             //PrintArray(FunctionGenerationAndUsage.PascalTriangleGeneration(1, 2, 3)(array));
