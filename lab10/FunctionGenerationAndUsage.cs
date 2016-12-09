@@ -98,8 +98,41 @@ namespace lab10A
             }
 
             return minPoint;
+        }
 
-            
+        public static Func<int[], int[]> PascalTriangleGeneration(int a, int b, int c)
+        {
+            return previousRow =>
+            {
+                if (previousRow.Length == 0)
+                    return new int[1] { a };
+                else if (previousRow.Length == 1)
+                    return new int[2] { b, c };
+
+                int[] newRow = new int[previousRow.Length + 1];
+                newRow[0] = previousRow[0];
+                for (int i = 1; i < newRow.Length - 1; i++)
+                    newRow[i] = previousRow[i - 1] + previousRow[i];
+                newRow[newRow.Length - 1] = previousRow[previousRow.Length - 1];
+                return newRow;
+            };
+        }
+
+        public static void TriangleGeneration(Func<int[], int[]> generateFn, int n)
+        {
+            int[] previousResult = new int[0];
+            for (int i=0; i < n; i++)
+            {
+                previousResult = generateFn(previousResult);
+                PrintArray(previousResult);
+            }
+        }
+
+        public static void PrintArray<T>(T[] array)
+        {
+            foreach (T el in array)
+                System.Console.Out.Write(el + " ");
+            System.Console.Out.WriteLine();
         }
     }
 

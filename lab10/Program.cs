@@ -77,22 +77,22 @@ namespace lab10A
             Console.WriteLine("Powinno byc: 0,3, -0,4");
 
 
-            //Console.WriteLine("\nEtap 4: czesc 1");
-            //int[] array = new int[]{4,5,6 };
-            //PrintArray(FunctionGenerationAndUsage.PascalTriangleGeneration(1, 2, 3)(array));
-            //Console.WriteLine("Powinno byc: 4 9 11 6");
+            Console.WriteLine("\nEtap 4: czesc 1");
+            int[] array = new int[] { 4, 5, 6 };
+            PrintArray(FunctionGenerationAndUsage.PascalTriangleGeneration(1, 2, 3)(array));
+            Console.WriteLine("Powinno byc: 4 9 11 6");
 
-            //Console.WriteLine("\nEtap 4: czesc 2");
-            ////powinnismy otrzymac
-            ////1
-            ////1 1
-            ////1 2 1
-            ////1 3 3 1
-            ////1 4 6 4 1
-            ////1 5 10 10 5 1
+            Console.WriteLine("\nEtap 4: czesc 2");
+            //powinnismy otrzymac
+            //1
+            //1 1
+            //1 2 1
+            //1 3 3 1
+            //1 4 6 4 1
+            //1 5 10 10 5 1
 
-            //FunctionGenerationAndUsage.TriangleGeneration(FunctionGenerationAndUsage.PascalTriangleGeneration(1, 1, 1), 6);
-            //Console.WriteLine(String.Empty);
+            FunctionGenerationAndUsage.TriangleGeneration(FunctionGenerationAndUsage.PascalTriangleGeneration(1, 1, 1), 6);
+            Console.WriteLine(String.Empty);
         }
     }
 }
