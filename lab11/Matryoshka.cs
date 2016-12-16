@@ -37,9 +37,15 @@ namespace Lab11a
         {
             get { return _innerDoll; }
             set {
+                if (_innerDoll != null)
+                    _innerDoll.Changed -= _bubbleEvent;
+
                 if (Changed != null)
                     Changed(this, new NotifyEventArgs("InnerDoll"));
                 _innerDoll = value;
+
+                if (_innerDoll != null)
+                    _innerDoll.Changed += _bubbleEvent;
             }
         }
 
@@ -48,6 +54,14 @@ namespace Lab11a
         public Matryoshka(string name)
         {
             _name = name;
+        }
+
+        private void _bubbleEvent(object sender, NotifyEventArgs e)
+        {
+            if (Changed == null)
+                return;
+
+            Changed(this, new NotifyEventArgs("InnerDoll." + e.PropertyName));
         }
     }
 }
