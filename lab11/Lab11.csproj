@@ -46,6 +46,7 @@
     <Compile Include="Matryoshka.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SimpleWatcher.cs" />
+    <Compile Include="SmartWatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Wyniki.txt" />
