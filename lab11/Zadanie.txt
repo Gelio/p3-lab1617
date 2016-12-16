@@ -1,0 +1,45 @@
+
+Klasa Matryoshka implementuje interface IChangeNotyfing.
+
+Klasa Matryoshka ma następujące właściwości:
+Name - tylko do odczytu (typu string) ustawiana przez parametr przekazywany do konstruktora.
+Theme - właściwość typu string.
+Color - właściwość typu string.
+InnerDoll - właściwość typu Matryoshka.
+
+Zmiana dowolnej z właściwości (Theme, Color, InnreDoll) powoduje zgłoszenie zdarzenia Changed.
+Parametrem zdarzenia jest nazwa właściwości, która uległa zmianie.
+
+Interfejs IWatcher definiuje dwie metody
+Watch - zwracającą void, przyjmującą jako parametr obiekt typu IChangeNotyfing
+StopWatching - zwracającą void, przyjmującą jako parametr obiekt typu IChangeNotyfing.
+
+Etap 1:
+Zdefiniować interfejs IWatcher oraz klasy Matryoshka i SimpleWatcher.
+
+Klasa SimpleWatcher implementuje interfejs IWatcher w nastepujący sposób
+
+Po wywołaniu metody Watch za każdym razem gdy dla przekazanego obiektu zgłaszane jest zdarzenie Changed
+watcher wypisuję na konsolę zdanie "Object changed".
+
+Wywołanie metody StopWatching zatrzymuje działanie metody Watch dla danego obiektu.
+
+Etap 2:
+Zdafinować klasę SmartWatcher (implementującą interfejs IWatcher), która działa tak jak SimpleWatcher
+tylko wypisuje na konsolę także nazwę zmieniającego się obiektu (właściwość Name) i nazwę właściwości,
+która uległa zmianie (parametr zdarzenia).
+
+Etap 3:
+Wsparcie dla list obiektów: w przypadku gdy lalka A zawiera lalkę B (poprzez właściwość InnerDoll)
+to jeśli zmianie ulegnie właściwość lalki B (np. Color) to lalka A powinna zgłosić zdarzenie
+z parametrem opisującym zagnieżdzoną właściwość (np. InnreDoll.Color).
+Zachowanie to powinno wspierać dowolny poziom zagnieżdżenia (np. InnerDoll.InnerDoll.InnerDoll.Color).
+
+UWAGA: Właściwość InnerDoll może ulec zmianie. Np. Lalka A może początkowo zawierać lalkę B,
+a następnie właściwość InnerDoll lalki A może zostać zmieniona na lalkę C.
+W takim momencie zmiany wlaściwości lalki B nie powinny powodować zgłaszania zdarzeń dla lalki A.
+
+Punktacja:
+Etap 1  - 2 pkt.
+Etap 2  - 1 pkt.
+Etap 3  - 2 pkt.

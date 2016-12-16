@@ -1,0 +1,47 @@
+
+ETAP 1
+
+Do tej pory nie powinno si© nic wypisa†
+-------------------------------
+Object changed
+Object changed
+
+ETAP 2
+
+Object changed
+Object Outer changed property: Color
+Object changed
+Object Outer changed property: Theme
+
+ETAP 3
+
+Object Outer changed property: InnerDoll
+-------------------------------
+Object Outer changed property: InnerDoll.Color
+-------------------------------
+Object Outer changed property: InnerDoll.Theme
+Object First Inner Level changed property: Theme
+-------------------------------
+Object Outer changed property: InnerDoll.InnerDoll
+Object First Inner Level changed property: InnerDoll
+-------------------------------
+Object Outer changed property: InnerDoll.InnerDoll.Color
+Object First Inner Level changed property: InnerDoll.Color
+-------------------------------
+Object Outer changed property: InnerDoll.InnerDoll.Theme
+Object First Inner Level changed property: InnerDoll.Theme
+Object Second Inner Level changed property: Theme
+-------------------------------
+Object Outer changed property: InnerDoll
+-------------------------------
+Object First Inner Level changed property: Color
+-------------------------------
+Object Outer changed property: InnerDoll.Color
+-------------------------------
+Object Outer changed property: InnerDoll.Theme
+Object First Inner Level2 changed property: Theme
+-------------------------------
+Object Outer changed property: InnerDoll
+Object First Inner Level changed property: Color
+Object First Inner Level2 changed property: Color
+
