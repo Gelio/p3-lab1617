@@ -10,7 +10,25 @@ namespace lab13A
     [Serializable] class Course
     {
         private string name;
+
+        [NonSerialized]
         private List<Segment> segments;
+
+        private Segment[] segmentArray;
+
+        [OnSerializing]
+        void saveSegments(StreamingContext context)
+        {
+            segmentArray = segments.ToArray();
+        }
+
+        [OnDeserialized]
+        void loadSegments(StreamingContext context)
+        {
+            segments = new List<Segment>();
+            for (int i = 0; i < segmentArray.Length; i++)
+                segments.Add(segmentArray[i]);
+        }
 
         public List<Segment> Segments
         {
@@ -26,6 +44,7 @@ namespace lab13A
         {
             this.name = name;
             segments = new List<Segment>();
+            segmentArray = new Segment[0];
         }
 
         public static Course ReadFromFolder(string path)
@@ -66,7 +85,33 @@ namespace lab13A
     [Serializable] class Segment
     {
         private string name;
+
+        [NonSerialized]
         private Dictionary<string, string> phrases;
+
+        private string[,] phrasesArray;
+
+        [OnSerializing]
+        void savePhrases(StreamingContext context)
+        {
+            phrasesArray = new string[phrases.Count, 2];
+            int i = 0;
+            foreach (var phrase in phrases)
+            {
+                phrasesArray[i, 0] = phrase.Key;
+                phrasesArray[i++, 1] = phrase.Value;
+            }
+        }
+
+        [OnDeserialized]
+        void loadPhrases(StreamingContext context)
+        {
+            phrases = new Dictionary<string, string>();
+            for (int i=0; i < phrasesArray.GetLength(0); i++)
+            {
+                phrases.Add(phrasesArray[i, 0], phrasesArray[i, 1]);
+            }
+        }
 
         public Dictionary<string, string> Phrases
         {
@@ -82,6 +127,7 @@ namespace lab13A
         {
             this.name = name;
             phrases = new Dictionary<string, string>();
+            phrasesArray = new string[0, 0];
         }
 
         public static Segment ReadFromFolder(string path)
