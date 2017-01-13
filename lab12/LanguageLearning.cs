@@ -30,7 +30,7 @@ namespace lab13A
 
         public static Course ReadFromFolder(string path)
         {
-            Course course = new lab13A.Course(path);
+            Course course = new Course(Path.GetFileNameWithoutExtension(path));
             string[] segmentNames = Directory.GetDirectories(path);
             foreach (string segmentPath in segmentNames)
             {
@@ -41,7 +41,14 @@ namespace lab13A
 
         public void WriteToFolder(string path)
         {
-            // etap 4
+            string coursePath = Path.Combine(path, name);
+            if (!Directory.Exists(coursePath))
+                Directory.CreateDirectory(coursePath);
+
+            foreach (Segment segment in segments)
+            {
+                segment.WriteToFolder(coursePath);
+            }
         }
 
         public override string ToString()
@@ -93,7 +100,21 @@ namespace lab13A
 
         public void WriteToFolder(string path)
         {
-            // etap 4
+            string segmentPath = Path.Combine(path, name);
+            if (!Directory.Exists(segmentPath))
+                Directory.CreateDirectory(segmentPath);
+
+            int i = 1;
+            foreach (var phrase in phrases)
+            {
+                FileStream fs = File.Open(Path.Combine(segmentPath, i + ".txt"), FileMode.Create);
+                string phraseToWrite = phrase.Key + Environment.NewLine + phrase.Value;
+                byte[] bytesToWrite = UTF8Encoding.UTF8.GetBytes(phraseToWrite);
+
+                fs.Write(bytesToWrite, 0, phraseToWrite.Length);
+                fs.Close();
+                i++;
+            }
         }
 
         public override string ToString()

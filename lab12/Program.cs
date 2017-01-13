@@ -32,16 +32,16 @@ namespace lab13A
                 Console.WriteLine("Serializacja SOAP - FAILED");
             }
 
-            //course.WriteToFolder("newFolder");
-            //Course course4 = Course.ReadFromFolder("newFolder/angielski");
-            //if (course.ToString() == course4.ToString())
-            //{
-            //    Console.WriteLine("Reczny zapis do struktury folderow - OK");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Reczny zapis do struktury folderow - FAILED");
-            //}
+            course.WriteToFolder("newFolder");
+            Course course4 = Course.ReadFromFolder("newFolder/angielski");
+            if (course.ToString() == course4.ToString())
+            {
+                Console.WriteLine("Reczny zapis do struktury folderow - OK");
+            }
+            else
+            {
+                Console.WriteLine("Reczny zapis do struktury folderow - FAILED");
+            }
         }
     }
 }
