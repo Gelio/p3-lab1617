@@ -7,7 +7,7 @@ using System.Text;
 
 namespace lab13A
 {
-    class Course
+    [Serializable] class Course
     {
         private string name;
         private List<Segment> segments;
@@ -56,7 +56,7 @@ namespace lab13A
 
     }
 
-    class Segment
+    [Serializable] class Segment
     {
         private string name;
         private Dictionary<string, string> phrases;

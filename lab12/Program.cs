@@ -9,17 +9,17 @@ namespace lab13A
             Course course = Course.ReadFromFolder("angielski");
             Console.Write(course.ToString());
 
-            //CourseSerializers.SerializeBinary(course, "angielski.bin");
-            //Course course2 = CourseSerializers.DeserializeBinary("angielski.bin");
+            CourseSerializers.SerializeBinary(course, "angielski.bin");
+            Course course2 = CourseSerializers.DeserializeBinary("angielski.bin");
 
-            //if(course.ToString() == course2.ToString())
-            //{
-            //    Console.WriteLine("Serializacja binarna - OK");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Serializacja binarna - FAILED");
-            //}
+            if (course.ToString() == course2.ToString())
+            {
+                Console.WriteLine("Serializacja binarna - OK");
+            }
+            else
+            {
+                Console.WriteLine("Serializacja binarna - FAILED");
+            }
 
             //CourseSerializers.SerializeSOAP(course, "angielski.soap");
             //Course course3 = CourseSerializers.DeserializeSOAP("angielski.soap");
