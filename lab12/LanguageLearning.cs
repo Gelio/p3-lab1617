@@ -30,8 +30,13 @@ namespace lab13A
 
         public static Course ReadFromFolder(string path)
         {
-            // etap 1
-            return new Course(null);  // zmienić
+            Course course = new lab13A.Course(path);
+            string[] segmentNames = Directory.GetDirectories(path);
+            foreach (string segmentPath in segmentNames)
+            {
+                course.Segments.Add(Segment.ReadFromFolder(segmentPath));
+            }
+            return course;
         }
 
         public void WriteToFolder(string path)
@@ -39,7 +44,15 @@ namespace lab13A
             // etap 4
         }
 
-// można dopisywać niezbędne metody
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Course: {0}\n\n", name);
+            foreach (var segment in segments)
+                sb.AppendFormat("{0}\n\n", segment);
+
+            return sb.ToString();
+        }
 
     }
 
@@ -66,8 +79,16 @@ namespace lab13A
 
         public static Segment ReadFromFolder(string path)
         {
-            // etap 1
-            return new Segment(null);  // zmienić
+            string segmentName = Path.GetFileNameWithoutExtension(path);
+            Segment segment = new Segment(segmentName);
+
+            // wczytywanie fraz
+            foreach (string filePath in Directory.GetFiles(path))
+            {
+                string[] phrase = File.ReadAllLines(filePath);
+                segment.phrases.Add(phrase[0], phrase[1]);
+            }
+            return segment;
         }
 
         public void WriteToFolder(string path)
@@ -75,7 +96,18 @@ namespace lab13A
             // etap 4
         }
 
-// można dopisywać niezbędne metody
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Segment: {0}\n", name);
+
+            foreach (var phrase in phrases)
+                sb.AppendFormat("{0}\n{1}\n", phrase.Key, phrase.Value);
+
+            return sb.ToString();
+        }
+
+        // można dopisywać niezbędne metody
 
     }
 }
