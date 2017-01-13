@@ -1,0 +1,30 @@
+Course: angielski
+
+Segment: A1
+
+book
+ksiazka
+my name is...
+moje imie to...
+curious
+ciekawy
+interesting
+interesujace
+
+Segment: B2
+
+island
+wyspa
+irritation
+irytacja
+
+Segment: C1
+
+precipitation
+opad
+irrigation
+irygacja
+
+Serializacja binarna - OK
+Serializacja SOAP - OK
+Reczny zapis do struktury folderow - OK

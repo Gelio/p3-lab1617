@@ -1,0 +1,51 @@
+Dany jest zestaw dwóch klas tworz¹cych kurs jêzykowy: kurs i segment.
+Kurs sk³ada siê z nazwy i kilku segmentów. Segment ma swoj¹ nazwê, a tak¿e 
+zawiera kilka fraz w jêzyku angielskim, które maj¹ te¿ swoje t³umaczenie na jêzyk polski.
+(W klasie Segment mamy s³ownik, gdzie kluczem jest fraza po angielsku, a wartoœci¹ polski odpowiednik).
+
+Etap 1 (2p.)
+
+Czêœæ 1
+Zdefiniowaæ wczytywanie kursu z folderu. Struktura folderów jest nastêpuj¹ca: mamy jeden folder,
+który przechowuje ca³y kurs. Nazwa folderu to nazwa kursu. W tym¿e folderze mamy kilka folderów,
+gdzie ka¿dy folder reprezentuje jeden segment. Nazwa takiego folderu to nazwa segmentu. W samym
+folderze reprezentuj¹cym segment mamy pliki tekstowe o dowolnych nazwach. W takim pliku mamy dwa wiersze:
+pierwszy wiersz to fraza w jêzyku obcym (angielskim), a drugi wiersz to ta sama fraza, ale w jêzyku ojczystym (polskim).
+
+Nale¿y uzupe³niæ metody ReadFromFolder tak, aby zwrócona klasa Course reprezentowa³a dok³adnie taki kurs, jak w folderze.
+
+Czêœæ 2
+Zdefiniowaæ metodê ToString. Powinna dzia³aæ tak, aby zwróciæ taki sam output, jak w pliku przyk³adowym.
+
+Etap 2 (0.5p.)
+
+Serializacja binarna - uzupe³niæ metody SerializeBinary i DeserializeBinary w klasie CourseSerializers.
+Serializacja powinna odbywaæ siê z/do pliku, do którego œcie¿ka jest podana jako argument path.
+
+Etap 3 (1p.)
+
+Serializacja SOAP - uzupe³niæ metody SerializeSOAP i DeserializeSOAP w klasie CourseSerializers.
+Serializacja powinna odbywaæ siê z/do pliku, do którego œcie¿ka jest podana jako argument path.
+
+Nale¿y zwróciæ uwagê na ograniczenia serializatora SOAP i zaproponowaæ ich rozwi¹zanie.
+
+Etap 4(1.5p.)
+
+Tym razem bêdziemy chcieli sami zapisaæ kurs jêzykowy w takiej samej strukturze folderów,
+jak ta, z której wczytywaliœmy w etapie 1. W tym celu nale¿y uzupe³niæ metody WriteToFolder.
+Narzucamy, ¿e pliki powinny nazywaæ siê kolejnymi liczbami ca³kowitymi, czyli 1.txt, 2.txt, ... .
+Nazwy folderów powinny byæ zgodne z nazwami kursu/segmentów.
+
+Dodatkowe za³o¿enia: ten folder, do którego dostajemy œcie¿kê jako argument, ma byæ folderem nadrzêdnym do folderu
+z kursem. Czyli, gdy dostajemy argument "newFolder", a chcemy zapisaæ kurs o nazwie "angielski", to tak naprawdê
+powinniœmy utworzyæ folder "newFolder/angielski" i w nim mieæ foldery reprezentuj¹ce poszczególne segmenty.
+
+Co wiêcej, jeœli folder "newFolder/angielski" istnieje, to nie przejmujemy siê tym i zapisujemy do niego. Jeœli nie,
+to go tworzymy. To samo tyczy siê poszczególnych segmentów. Same pliki powinny byæ otwierane tak, ¿e jeœli
+istnia³ ju¿ plik o tej samej nazwie, to jest on nadpisywany.
+
+
+UWAGI
+1) plik "angielski" wgraæ do katalogu Debug (tam gdzie VS generuje pliki exe)
+2) Mo¿na modyfikowaæ przygotowane klasy np. dopisuj¹c odpowiednie atrybuty
+3) Mo¿e byæ potrzebne dodanie do projektu odpowiednich referencji
