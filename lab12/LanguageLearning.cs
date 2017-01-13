@@ -106,8 +106,5 @@ namespace lab13A
 
             return sb.ToString();
         }
-
-        // można dopisywać niezbędne metody
-
     }
 }

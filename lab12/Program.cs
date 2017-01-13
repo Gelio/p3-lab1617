@@ -21,16 +21,16 @@ namespace lab13A
                 Console.WriteLine("Serializacja binarna - FAILED");
             }
 
-            //CourseSerializers.SerializeSOAP(course, "angielski.soap");
-            //Course course3 = CourseSerializers.DeserializeSOAP("angielski.soap");
-            //if (course.ToString() == course3.ToString())
-            //{
-            //    Console.WriteLine("Serializacja SOAP - OK");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Serializacja SOAP - FAILED");
-            //}
+            CourseSerializers.SerializeSOAP(course, "angielski.soap");
+            Course course3 = CourseSerializers.DeserializeSOAP("angielski.soap");
+            if (course.ToString() == course3.ToString())
+            {
+                Console.WriteLine("Serializacja SOAP - OK");
+            }
+            else
+            {
+                Console.WriteLine("Serializacja SOAP - FAILED");
+            }
 
             //course.WriteToFolder("newFolder");
             //Course course4 = Course.ReadFromFolder("newFolder/angielski");
