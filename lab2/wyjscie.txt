@@ -1,0 +1,81 @@
+Etap 1
+if_all_fnames_contain(a) 1
+if_all_fnames_contain(d) 0
+
+Etap 2
+remove_lnames_of_length 7 
+Konrad Wallenrod 13
+Ksiadz Robak 2
+Adam Mickiewicz 44
+
+remove_lnames_of_length 2 
+Konrad Wallenrod 13
+Tadeusz Soplica 8001
+Ksiadz Robak 2
+Jacek Soplica 2
+Adam Mickiewicz 44
+
+substitute_lnames_of_length 7 
+Konrad Wallenrod 13
+Juliusz Slowacki -1
+Ksiadz Robak 2
+Juliusz Slowacki -1
+Adam Mickiewicz 44
+
+substitute_lnames_of_length 24 
+Konrad Wallenrod 13
+Tadeusz Soplica 8001
+Ksiadz Robak 2
+Jacek Soplica 2
+Adam Mickiewicz 44
+
+
+Etap 3
+random1: 
+Oktawian Cezar 9
+Neron Antoniusz 11
+Oktawian August 13
+Neron Cezar 15
+Oktawian Antoniusz 17
+Neron August 19
+Oktawian Cezar 21
+Neron Antoniusz 23
+
+random2: 
+Oktawian Cezar 9
+Neron Antoniusz 11
+Oktawian August 13
+Neron Cezar 15
+Oktawian Antoniusz 17
+Neron August 19
+Oktawian Cezar 21
+Neron Antoniusz 23
+
+random3: 
+Oktawian Cezar 9
+Neron Antoniusz 11
+Oktawian August 13
+Neron Cezar 15
+Oktawian Antoniusz 17
+Neron August 19
+Oktawian Cezar 21
+Neron Antoniusz 23
+
+
+Etap 4
+Find by name Adam: Adam Mickiewicz 44
+Find by name Fryderyk: nullptr
+
+Etap 5
+sort_by_album_no porownan: 8
+Ksiadz Robak 2
+Jacek Soplica 2
+Konrad Wallenrod 13
+Adam Mickiewicz 44
+Tadeusz Soplica 8001
+sort_by_last_name_album_no porownan: 9
+Adam Mickiewicz 44
+Ksiadz Robak 2
+Jacek Soplica 2
+Tadeusz Soplica 8001
+Konrad Wallenrod 13

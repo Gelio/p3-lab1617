@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#stl-i-funkcje-lambda">STL i funkcje lambda</a><ul>
+<li><a href="#etap-1">Etap 1</a></li>
+<li><a href="#etap-2">Etap 2</a></li>
+<li><a href="#etap-3">Etap 3</a></li>
+<li><a href="#etap-4">Etap 4</a></li>
+<li><a href="#etap-5">Etap 5</a></li>
+<li><a href="#uwagi-i-podpowiedzi">Uwagi i podpowiedzi</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="stl-i-funkcje-lambda">STL i funkcje lambda</h1>
+<p>Zadanie wymaga korzystanie z algorytmów STL i funkcji lambda. W rozwiązaniu <strong>nie wolno</strong> używać żadnych pętli.</p>
+<p>Zadanie polega na napisaniu kilku operacji związanych z listą studentów. Dana jest klasa student i klasa zawierające listę studentów. Klasa student jest kompletna i nie ma potrzeby dodawania do niej nowych elementów.</p>
+<p>Zadanie składa się z 5 etapów, każdy za 1 punkt, które można wykonywać niezależnie od siebie.</p>
+<h2 id="etap-1">Etap 1</h2>
+<p>Napisać metodę <code>students_list::if_all_fnames_contain</code>, która przyjmuje jeden argument typu char i zwraca informację, czy wszystkie imiona z listy (<code>first_name</code>) zawierają tę literę.</p>
+<h2 id="etap-2">Etap 2</h2>
+<p>Napisać metody:</p>
+<ul>
+<li><p><code>students_list::remove_lnames_of_length</code>, która przyjmuje jeden argument – liczbę bez znaku i usuwa z listy studentów wszystkich tych, których <code>last_name</code> składa się z dokładnie tej liczby znaków.</p>
+<p>Zwrócić uwagę, że algorytm <code>remove_if</code> nie usuwa fizycznie elementów z kontenera.</p></li>
+<li><p><code>students_list::substitute_lnames_of_length</code>, która przyjmuje dwa argumenty: liczbę bez znaku i obiekt student. Metoda zamienia na liście wszystkich studentów o <code>last_name</code> podanej długości na studenta podanego jako argument. (Wskutek tej operacji student może wystąpić wiele razy w liście).</p></li>
+</ul>
+<h2 id="etap-3">Etap 3</h2>
+<p>Uzupełnić fragment funkcji <code>main</code>, który wygeneruje (mało)losowe trzy identyczne listy studentów.</p>
+<p>Dany jest konstruktor klasy <code>student</code>, konstruujący studenta z liczby losowej. Należy wygenerować studentów poprzez tworzenie ich na podstawie kolejnych wylosowanych liczb.</p>
+<p>Uwaga! Ten konstruktor nie jest oznaczony jako explicit, co oznacza, że zadziała jak konwerter z <code>int</code> do <code>student</code>. Wykorzystać ten fakt.</p>
+<ol start="0" type="1">
+<li>W <code>main</code> jest zmienna num.</li>
+<li>Zdefiniować funkcję lambda, która zwraca kolejne liczby: num+2, num+4, num+6, … (każde wywołanie lambdy zwraca inną liczbę).</li>
+<li>Użyć algorytmu, który wypełni każdą z list <code>random1</code>, <code>random2</code>, <code>random3</code> 8 egzemplarzami studentów wygenerowanymi na podstawie kolejnych wartości zdefiniowanej lambdy.</li>
+</ol>
+<h2 id="etap-4">Etap 4</h2>
+<p>Napisać metodę <code>students_list::find_by_first_name</code> , która przyjmuje jeden argument typu string i zwraca wskaźnik na studenta. Jeśli na liście jest student, który ma takie <code>first_name</code> jak w argumencie – zwraca wskaźnik na tego studenta. W przeciwnym wypadku zwraca <code>nullptr</code>.</p>
+<h2 id="etap-5">Etap 5</h2>
+<p>Napisać metody:</p>
+<ul>
+<li><p><code>students_list::sort_by_album_no</code>, bezargumentową, która sortuje listę rosnąco według pola <code>album_no</code>. Metoda zwraca liczbę operacji porównania wykonaną przez algorytm sortujący.</p></li>
+<li><p><code>students_list::sort_by_last_name_album_no</code>, bezargumentową, która sortuje listę rosnąco według pola <code>last_name</code>,a w przypadku remisu według <code>album_no</code>. Metoda zwraca liczbę operacji porównania wykonaną przez algorytm sortujący.</p></li>
+</ul>
+<p>Podpowiedź: do zliczania operacji porównania można wykorzystać przechwytywanie zmiennej przez referencję.</p>
+<h2 id="uwagi-i-podpowiedzi">Uwagi i podpowiedzi</h2>
+<p>Funkcje lambda są dość nowym elementem języka C++ pozwalającym w znacznie krótszy sposób napisać to, co w poprzednich wersjach trzeba było robić z użyciem funktorów (klas ze zdefiniowanym operatorem <code>()</code>). Odpowiednikiem pól klasy funktora w lambdach są zmienne przechwycone z użyciem nawiasów kwadratowych. Domyślnie zmiennych przechwyconych przez kopię nie można ich modyfikować (podobne zachowanie jak zadeklarowanie w funktorze pól z kwalifikatorem <code>const</code>). Aby zmienić to zachowanie, należy zdefiniować lambdę z modyfikatorem <code>mutable</code>:</p>
+<pre class="sourceCode Cpp"><code class="sourceCode cpp">[zmienna1, zmienna2] (<span class="dt">bool</span> arg1, <span class="dt">int</span> arg2) <span class="dt">mutable</span> {
+<span class="co">// Kod, który modyfikuje zmienna1 i/lub zmienna2</span>
+}</code></pre>
+</body>
+</html>

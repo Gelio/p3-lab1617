@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#programowanie-z-wykorzystaniem-stl">Programowanie z wykorzystaniem STL</a><ul>
+<li><a href="#etap-1-2p">Etap 1 (2p)</a></li>
+<li><a href="#etap-2-1p">Etap 2 (1p)</a></li>
+<li><a href="#etap-3-1p">Etap 3 (1p)</a></li>
+<li><a href="#etap-4-1p">Etap 4 (1p)</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="programowanie-z-wykorzystaniem-stl">Programowanie z wykorzystaniem STL</h1>
+<p>Celem zadania jest wykorzystanie algorytmów z STL, zamiast pisania własnego kodu. Większość algorytmów zawiera w sobie pętle po zakresach podanych jako argumenty, w związku z tym w rozwiązaniu zadania <strong>nie wolno używać pętli</strong>, o ile nie zostało jawnie powiedziane, że wolno. Należy wykorzystać algorytmy z STL.</p>
+<p>Zadanie jest podzielone na 4 etapy, które trzeba wykonać w podanej kolejności.</p>
+<p>Dostarczone są trzy klasy reprezentujące elementy:: paczki, ciężarówki (zawierające zbiory paczek) i firmę transportową, która przechowuje oczekujące paczki i użyte ciężarówki.</p>
+<p>Nie można modyfikować pól dostarczonych klas. Można dodawać tylko nowe metody.</p>
+<p>Dokładne sygnatury metod i funkcji należy dobrać tak, aby kompilował się plik <code>main.cpp</code>. Proszę uważać na modyfikatory <code>const</code> i referencje.</p>
+<h2 id="etap-1-2p">Etap 1 (2p)</h2>
+<p>Zaimplementować:</p>
+<ul>
+<li>Elementy potrzebne aby utworzyć <code>std::set&lt;paczka&gt;</code></li>
+<li>Operator wypisywania dla firma_transportowa (ma wypisywać tylko zbiór paczek, innych pól nie wypisywać).</li>
+<li><code>firma_transportowa::dodaj_paczke_do_kolejki</code> – jeden argument – paczka, dodaje paczkę do zbioru paczek w firmie</li>
+<li><code>firma_transportowa::dodaj_paczki_do_kolejki</code> – dwa argumenty – początek i koniec zakresu. Cały zakres dodać do zbioru paczek. <em>Uwaga: deklaracja tej metody jest już w klasie</em></li>
+</ul>
+<p>Do operatorów wypisywania kolekcji użyć <code>std::istream_iterator</code> i <code>std::copy</code>.</p>
+<h2 id="etap-2-1p">Etap 2 (1p)</h2>
+<ul>
+<li><code>firma_transportowa::wyslij_ciezarowke()</code> – tworzy nową ciężarówkę, która zawiera wszystkie paczki ze zbioru paczek w firmie i dodaje ją do wektora ciężarówek. Usuwa wszystkie paczki ze zbioru w firmie.</li>
+<li><code>firma_transportowa::nta_cieżarówka</code> – przyjmuje int jako argument i zwraca referencję na n-tą ciężarówkę w wektorze (nie sprawdza zakresu).<br /><strong>Uwaga! Trzeba przygotować dwa warianty metody, jedną z modyfikatorem const i jedną bez.</strong></li>
+<li>operator wypisywania dla ciężarówki (wypisuje jej zbiór paczek)</li>
+<li><code>ciezarowka::waga_paczek</code> – zwraca sumę wag wszystkich paczek w wektorze ciężarówki.</li>
+</ul>
+<h2 id="etap-3-1p">Etap 3 (1p)</h2>
+<ul>
+<li>Operator wypisywania wektora ciężarówek</li>
+<li><code>firma_transportowa::kopia_ciezarówek</code> – zwraca głęboką kopię wektora ciężarówek</li>
+<li>funkcja <code>oproznij_niedopuszczone_ciezarowki</code> – przyjmuje wektor ciężarówek jako argument. <em>Modyfikuje</em> ten wektor w następujący sposób: dla wszystkich ciężarówek, w których suma wag paczek jest wielokrotnością 13, usuwa wszystkie paczki z tej ciężarówki. Pozostałe ciężarówki są niezmienione. <strong>W tej metodzie można użyć pętli for po zakresie.</strong></li>
+</ul>
+<h2 id="etap-4-1p">Etap 4 (1p)</h2>
+<ul>
+<li><code>ciezarowka::popraw_wywazenie</code> – aby ciężarówka była dobrze wyważona, w wektorze nie mogą znaleźć się obok siebie paczki o takiej samej parzystości wagi. Usuwa z wektora paczki o takiej samej parzystości jak poprzednik.<br /> <em>Proszę zauważyć, że algorytm <code>std::unique</code> nie usuwa żadnego elementu z kontenera.</em></li>
+</ul>
+</body>
+</html>
