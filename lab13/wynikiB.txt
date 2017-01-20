@@ -1,0 +1,42 @@
+
+-> ETAP 1 (0.5 pkt.)
+
+Ork Boyz
+Mad Dok
+Killa Kan
+Gretchin
+
+-> ETAP 2 (1.0 pkt.)
+
+{ Name = Ork Boyz, BuildingName = Da Boyz Hut, CostGas = 0, CostMinerals = 50 }
+{ Name = Mad Dok, BuildingName = Da Boyz Hut, CostGas = 50, CostMinerals = 150 }
+{ Name = Killa Kan, BuildingName = Da Mek Shop, CostGas = 150, CostMinerals = 150 }
+{ Name = Gretchin, BuildingName = Settlement, CostGas = 0, CostMinerals = 25 }
+
+-> ETAP 3 (1.0 pkt.)
+
+{ Name = Space Marine, BuildingName = Chapel-Barracks }
+{ Name = Grey Knights, BuildingName = Chapel-Barracks }
+{ Name = Rhino Transport, BuildingName = Machine Cult }
+{ Name = Dreadnought , BuildingName = Machine Cult }
+{ Name = Chaplain, BuildingName = Chapel-Barracks }
+{ Name = Ork Boyz, BuildingName = Da Boyz Hut }
+{ Name = Mad Dok, BuildingName = Da Boyz Hut }
+{ Name = Killa Kan, BuildingName = Da Mek Shop }
+
+-> ETAP 4 (1.0 pkt.)
+
+{ CostGas = 0, CostMinerals = 50, Count = 3 }
+{ CostGas = 50, CostMinerals = 50, Count = 1 }
+{ CostGas = 150, CostMinerals = 150, Count = 2 }
+{ CostGas = 125, CostMinerals = 350, Count = 1 }
+{ CostGas = 100, CostMinerals = 150, Count = 1 }
+{ CostGas = 50, CostMinerals = 150, Count = 1 }
+{ CostGas = 0, CostMinerals = 25, Count = 1 }
+
+-> ETAP 5 (1.5 pkt.)
+
+{ TotalGasCost = 150, TotalMineralCost = 900 }
+
+-> KONIEC
+

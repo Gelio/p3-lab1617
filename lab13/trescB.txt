@@ -1,0 +1,31 @@
+
+Laboratorium 14 - LINQ
+
+Celem zadania jest napisanie zapytañ w LINQ opisanych w pliku Lab14bMain.cs.
+
+Wa¿ne - istnieje dowolnosæ rozwi¹zania, pod warunkiem, ¿e wykorzystywane do zapytania jest tylko i wy³¹cznie LINQ
+ - nie mo¿na korzystaæ z konstrukcji foreach, for itp.
+W szczególnoœci listy races, buildings i units mo¿na wykorzystywaæ jedynie jako sekwencje Ÿród³owe.
+Nie wolno te¿ tworzyæ ¿adnych kolekcji pomocniczych bêd¹cych prostymi kopiami powy¿szych list.
+
+ETAP 1 (0.5 pkt.):
+Napisz zapytanie które zwróci listê z nazwami jednostek dla rasy "Ork" (w wynikach s¹ tylko nazwy jednostek)
+
+ETAP 2 (1.0 pkt.):
+Napisz zapytanie które zwróci listê nazw jednostek dla rasy "Ork",
+wraz z nazw¹ budynku oraz kosztem budowy jednostki (gaz i minera³y)
+
+ETAP 3 (1.0 pkt.):
+Napisz zapytanie które zwróci listê nazw jednostek wraz z nazw¹ budynku którego wymagaj¹,
+tylko dla budyków które wymagaj¹ innego budynku do wybudowania
+
+ETAP 4 (1.0 pkt.):
+Napisz zapytanie które zwróci liczbê ró¿nych rodzajów jednostek zgrupowanych po konkretnym koszcie
+
+ETAP 5 (1.5 pkt.):
+Napisz zapytanie które zwróci ca³kowity koszt budynków które nale¿y wybudowaæ
+(zaczynamy bez ani jednego budynku wybudowanego),
+aby móc wybudowaæ budynek "Machine Cult" (wraz z kosztem "Machine Cult")
+
+Wskazówka - do etapu 5 nale¿y wykorzystaæ rozszerzaj¹c¹ metodê pomocnicz¹ SelectIterative.
+(po jej uzupe³nieniu).
